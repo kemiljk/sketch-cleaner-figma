@@ -1,0 +1,200 @@
+<div class="space-y">
+  <button id="rm-masks" class="secondary">Remove masks</button>
+  <button id="rm-strokes" class="secondary">Remove strokes</button>
+  <button id="fill" class="secondary">Fill frame</button>
+  <button id="fix" class="primary">Fix all</button>
+</div>
+<script>
+  document.getElementById("rm-masks").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "rm-masks" } }, "*");
+  };
+  document.getElementById("rm-strokes").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "rm-strokes" } }, "*");
+  };
+  document.getElementById("fill").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "fill-frame" } }, "*");
+  };
+  document.getElementById("fix").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "fix-all" } }, "*");
+  };
+</script>
+
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+  }
+  /* Remove excess padding and border in Firefox 4+ */
+  button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  button {
+    display: grid;
+    place-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  div.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 0.25rem;
+  }
+  div.space-y > button {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: smaller;
+    font-weight: 700;
+    color: darkslategray;
+    margin-bottom: 0.25rem;
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: white;
+    color: rgb(87, 87, 87);
+    font-weight: 500;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid darkgrey;
+  }
+  input:first-of-type {
+    margin-right: 0.25rem;
+  }
+  input:active {
+    border: 2px solid #17a0fb;
+  }
+  input:focus {
+    border: 2px solid #17a0fb;
+  }
+  select {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: white;
+    color: #575757;
+    font-weight: 500;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid #d4d6dd;
+  }
+  select:first-of-type {
+    margin-right: 0.25rem;
+  }
+  select:active {
+    border: 2px solid #17a0fb;
+  }
+  select:focus {
+    border: 2px solid #17a0fb;
+  }
+  .primary {
+    margin-right: 0.25rem;
+    background-color: #17a0fb;
+    color: white;
+    height: 40px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    transition: all 0.1s ease-in-out;
+  }
+  .secondary {
+    margin-right: 0.25rem;
+    background-color: rgb(238, 237, 237);
+    color: rgb(87, 87, 87);
+    height: 40px;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    transition: all 0.1s ease-in-out;
+  }
+  .textStyle {
+    background: none;
+    color: #17a0fb;
+    width: 40px;
+    font-weight: 600;
+    font-size: small;
+  }
+  .primary:last-of-type {
+    margin-right: 0;
+  }
+  .primary:active {
+    background-color: #0985d8;
+  }
+  .primary:focus {
+    background-color: #0985d8;
+  }
+  .secondary:active {
+    background-color: lightgray;
+  }
+  .primary:hover {
+    background-color: #0985d8;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+  .secondary:hover {
+    background-color: lightgray;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+  .secondary:focus {
+    background-color: lightgray;
+  }
+  .textStyle:active {
+    color: #0985d8;
+  }
+  .textStyle:hover {
+    color: #0985d8;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+  .textStyle:focus {
+    color: #0985d8;
+    border-bottom: 1px solid #0985d8;
+  }
+  .xs {
+    font-size: x-small;
+    margin-top: 5px;
+    color: darkslategray;
+  }
+  .sm {
+    font-size: small;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    color: darkslategray;
+  }
+</style>
